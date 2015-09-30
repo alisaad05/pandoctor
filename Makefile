@@ -1,10 +1,10 @@
-# SAAD 2015 - licensed under WTFNMFPL 
+# SAAD 2015
 #=================================
 #======================= USER DATA 			
 #=================================
 FILENAME=main
-BIB=./bib/talk.bib
-CSTYLE=./csl/talk.csl
+BIB=./bib/auto_references.bib
+CSTYLE=./csl/metallurgical-and-materials-transactions.csl
 CSS=./css/pandoc_github.css
 CSS_REMOTE=https://gist.githubusercontent.com/andyferra/2554919/raw/10ce87fe71b23216e3075d5648b8b9e56f7758e1/github.css
 TEMPLATE=./template/default.beamer.tex
