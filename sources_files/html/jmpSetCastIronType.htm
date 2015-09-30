@@ -1,0 +1,61 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetCastIronType()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetCastIronType()</H1>
+    <P>Defines the structure type for cast irons.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetCastIronType (int typeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>typeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the type of structure to consider in a solidification calculation for cast irons. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_CAST_IRON_PEARLITIC</CODE></TD>
+        <TD CLASS="float">To assume a pearlitic structure.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_CAST_IRON_AUSTENITIC</CODE></TD>
+        <TD CLASS="float">To assume an austenitic structure.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_CAST_IRON_FERRITIC</CODE></TD>
+        <TD CLASS="float">To assume a ferritic structure.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function is only relevant to set up the Solidification module to run a calculation for cast irons.</LI>
+      <LI>This function call is optional. If omitted, a pearlitic structure will be assumed.</LI>
+      <LI>Currently, cast irons of austenitic and ferritic structures are treated in the same manner. Therefore, interchanging them has no effect and produces the same calculation results.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolidification.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolidification.lib</CODE>/<CODE>jmpsolidification_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolidification.dll</CODE>/<CODE>jmpsolidification_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

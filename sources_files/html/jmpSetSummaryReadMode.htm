@@ -1,0 +1,57 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetSummaryReadMode()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetSummaryReadMode()</H1>
+    <P>Defines the input read mode for the Coldfire module.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetSummaryReadMode (int modeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>modeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies how to obtain the input data required to perform a Coldfire calculation. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_FROM_SOLVER</CODE></TD>
+        <TD CLASS="float">To read data from the Solver output file <CODE><B>summary.out</B></CODE>.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_USER_SPECIFIED</CODE></TD>
+        <TD CLASS="float">To read data from a user-defined file.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. By default, Coldfire inputs data from <CODE><B>summary.out</B></CODE>.</LI>
+      <LI>If a user-defined file (similar to <CODE><B>summary.out</B></CODE>, e.g., obtained from a Solver stepping calculation) is requested with the parameter value <CODE>JMP_READ_USER_SPECIFIED</CODE>, then the function <A HREF="jmpSetUserFilename.htm">jmpSetUserFilename()</A> must be called to set its name.</LI>
+    </UL>
+    <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;Any Solver calculation apart from T<SUB>0</SUB> energy change or Gibbs energy difference will produce valid input data for the Coldfire module. When calculating room-temperature matrix mechanical properties, it should be noted that the various blocks in the Solver output file will be interpreted as heat treatment information.</P>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

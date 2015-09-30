@@ -1,0 +1,48 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetSolverPhases()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetSolverPhases()</H1>
+    <P>Reads the phases to be included in a Solver calculation from a user-defined list.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetSolverPhases (int numPhases, char **phaseList);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numPhases</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of phases to consider in the Solver calculation.</P>
+    <P><CODE><B>phaseList</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of null-terminated sequences of characters that specifies the list of phases to consider in the Solver calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. However, if you do not specify the phases to include in the Solver calculation, then a default list must be set instead, by calling <A HREF="jmpSetDefaultPhases.htm">jmpSetDefaultPhases()</A>.</LI>
+      <LI>Depending on the material type, only specific sets of phases are allowed. For valid choices, refer to the file <CODE><B>inits/jmp.ini</B></CODE>, which can be found in the subdirectory <CODE><B>Runtime</B></CODE> in the API installation directory, and should be placed at the same level as your executable file.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

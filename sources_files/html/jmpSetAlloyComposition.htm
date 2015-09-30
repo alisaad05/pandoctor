@@ -1,0 +1,52 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetAlloyComposition()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetAlloyComposition()</H1>
+    <P>Defines the numerical values of the alloy composition.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetAlloyComposition (int numElements, double *composition);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numElements</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of elements in the alloy.</P>
+    <P><CODE><B>composition</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of doubles that specifies the concentrations of the elements in the alloy.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is required to set up most calculation modules. The only exception is Coldfire, for which the alloy composition is read from a Solver output file.</LI>
+      <LI>The input composition unit may be specified using <A HREF="jmpSetCompositionUnit.htm">jmpSetCompositionUnit()</A>.</LI>
+      <LI>The first element in the alloy is always used for balancing, in order to ensure that the total fraction of elements is 1 (or 100%). As such, it is not necessary to specify its concentration, even though it must be passed in the input array.</LI>
+      <LI>When preparing the Solver to run a concentration stepping calculation, this function will either define the concentrations of the fixed elements or provide a basis upon which balancing is performed at each step.</LI>
+      <LI>For Scheil-Gulliver calculations, this function will set the initial composition of the liquid, which is expected to be the only phase present at the start of the calculation.</LI>
+      <LI>Make sure that the specified alloy composition is consistent with the material type, otherwise unexpected or unreliable results may be obtained.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

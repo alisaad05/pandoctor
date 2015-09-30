@@ -1,0 +1,54 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetMultiplePoints()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetMultiplePoints()</H1>
+    <P>Defines the temperatures and compositions to be considered in Solver calculations with arbitrary points.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetMultiplePoints (int numPoints, int numElements, double **inputData);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numPoints</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of temperature-composition points to consider in the calculation.</P>
+    <P><CODE><B>numElements</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of elements in the alloy.</P>
+    <P><CODE><B>inputData</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to a two-dimensional array of doubles that specifies the set of temperature-composition points to consider in the calculation. The array should have <CODE>numPoints</CODE> rows and <CODE>numElements + 1</CODE> columns. The first column must hold the temperature values, while the remaining columns must be used for the various concentrations of elements in the alloy.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>A call to this function is necessary to prepare the Solver to run multiple points calculations. It may also be used to set up single phase calculations, when many temperature-composition points are required.</LI>
+      <LI>The specified number of temperature-composition points must not exceed 1000.</LI>
+      <LI>The input temperature and composition units may be specified using <A HREF="jmpSetTemperatureUnit.htm">jmpSetTemperatureUnit()</A> and <A HREF="jmpSetCompositionUnit.htm">jmpSetCompositionUnit()</A>, respectively.</LI>
+      <LI>The first element in the alloy is always used for balancing, in order to ensure that, for each row, the total fraction of elements is 1 (or 100%). As such, it is not necessary to specify its concentration, even though it must be passed in the input array.</LI>
+      <LI>To ensure the validity of the calculations, the specified temperatures should not be set to values lower than room temperature.</LI>
+      <LI>Also, you should make sure that the various alloy compositions are consistent with the material type, otherwise unexpected or unreliable results may be obtained.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

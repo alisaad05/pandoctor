@@ -1,0 +1,104 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetPhysicalProperty()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetPhysicalProperty()</H1>
+    <P>Adds one or more physical properties to the Coldfire calculation set.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetPhysicalProperty (int propertyToAdd);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>propertyToAdd</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the property (or set of properties) you wish to include in the list of physical and thermophysical properties to be calculated when running Coldfire. This parameter can take one or any combination of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_DENSITY</CODE></TD>
+        <TD CLASS="float">To include density in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_MOLAR_VOLUME</CODE></TD>
+        <TD CLASS="float">To include molar volume in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_VISCOSITY</CODE></TD>
+        <TD CLASS="float">To include viscosity in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_DIFFUSIVITY</CODE></TD>
+        <TD CLASS="float">To include diffusivity in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_SURFACE_TENSION</CODE></TD>
+        <TD CLASS="float">To include surface tension in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_YOUNGS_MODULUS</CODE></TD>
+        <TD CLASS="float">To include Young's modulus in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_BULK_MODULUS</CODE></TD>
+        <TD CLASS="float">To include bulk modulus in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_SHEAR_MODULUS</CODE></TD>
+        <TD CLASS="float">To include shear modulus in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_POISSONS_RATIO</CODE></TD>
+        <TD CLASS="float">To include Poisson's ratio in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_THERMAL_CONDUCTIVITY</CODE></TD>
+        <TD CLASS="float">To include thermal conductivity in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_THERMAL_DIFFUSIVITY</CODE></TD>
+        <TD CLASS="float">To include thermal diffusivity in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_ELECTRICAL_CONDUCTIVITY</CODE></TD>
+        <TD CLASS="float">To include electrical conductivity in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_ELECTRICAL_RESISTIVITY</CODE></TD>
+        <TD CLASS="float">To include electrical resistivity in the calculation set.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing Coldfire to perform the calculation of physical and thermophysical properties. It is also relevant to set up the Solidification module, since it uses Coldfire to calculate physical and thermophysical properties during solidification.</LI>
+      <LI>This function call is optional. By default, every property will be included in the calculation.</LI>
+      <LI>Property flags may be combined in a bitwise manner and set with a single function call, as shown in the code snippet below:</LI>
+      <P CLASS="code-block">jmpSetPhysicalProperty (JMP_PHYSICAL_PROPERTY_DENSITY | JMP_PHYSICAL_PROPERTY_MOLAR_VOLUME);</P>
+      <LI>The parameter value <CODE>JMP_PHYSICAL_PROPERTY_ALL</CODE> is also defined, and may be used as a shorthand to add all properties at once.</LI>
+    </UL>
+    <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;Coldfire will also add enthalpy, specific heat, and latent heat to the list of physical and thermophysical properties. These quantities are always included in the calculation.</P>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

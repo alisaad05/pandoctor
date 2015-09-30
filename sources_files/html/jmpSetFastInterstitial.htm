@@ -1,0 +1,47 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetFastInterstitial()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetFastInterstitial()</H1>
+    <P>Defines whether to consider fast diffusion of interstitial atoms in Scheil-Gulliver calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetFastInterstitial (int booleanFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>booleanFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies whether fast diffusion of interstitial atoms (specifically, carbon and nitrogen) should be taken into account when running a Scheil-Gulliver calculation. Possible values are <CODE>JMP_FLAG_TRUE</CODE> or <CODE>JMP_FLAG_FALSE</CODE>, respectively to include fast diffusion or not.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing the Solver to run a Scheil-Gulliver calculation or when setting up the Solidification module.</LI>
+      <LI>This function call is optional. By default, fast carbon and nitrogen diffusion is taken into account for steels, but for the other material types the classical Scheil-Gulliver model is used.</LI>
+      <LI>Although this function can be applied for most material types, its usage is only recommended for steels.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

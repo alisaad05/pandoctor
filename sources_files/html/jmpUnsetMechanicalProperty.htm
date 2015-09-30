@@ -1,0 +1,56 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpUnsetMechanicalProperty()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpUnsetMechanicalProperty()</H1>
+    <P>Removes one or more mechanical properties from the Coldfire calculation set.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpUnsetMechanicalProperty (int propertyToRemove);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>propertyToRemove</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the property (or set of properties) you wish to exclude from the list of mechanical properties to be calculated when running Coldfire. This parameter can take one or any combination of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_YIELD_STRESS</CODE></TD>
+        <TD CLASS="float">To exclude yield stress from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_TENSILE_STRESS</CODE></TD>
+        <TD CLASS="float">To exclude tensile stress from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_HARDNESS</CODE></TD>
+        <TD CLASS="float">To exclude Vickers hardness from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_HALL_PETCH</CODE></TD>
+        <TD CLASS="float">To exclude Hall-Petch coefficient from the calculation set.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing Coldfire to perform the calculation of room-temperature matrix mechanical properties.</LI>
+      <LI>This function call is optional. By default, no property will be excluded from the calculation.</LI>
+      <LI>Property flags may be combined in a bitwise manner and unset with a single function call, as shown in the code snippet below:</LI>
+      <P CLASS="code-block">jmpUnsetMechanicalProperty (JMP_MECHANICAL_PROPERTY_HARDNESS | JMP_MECHANICAL_PROPERTY_HALL_PETCH);</P>
+      <LI>The parameter value <CODE>JMP_MECHANICAL_PROPERTY_ALL</CODE> is also defined, and may be used as a shorthand to remove all properties at once.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

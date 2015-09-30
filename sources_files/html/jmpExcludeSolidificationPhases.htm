@@ -1,0 +1,49 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpExcludeSolidificationPhases()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpExcludeSolidificationPhases()</H1>
+    <P>Defines a list of phases to be excluded from a solidification calculation.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpExcludeSolidificationPhases (int numPhasesToRemove, char **excludeList);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numPhasesToRemove</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of phases to exclude from the solidification calculation.</P>
+    <P><CODE><B>excludeList</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of null-terminated sequences of characters that specifies the list of phases to exclude from the solidification calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>A call to this function is necessary after requesting a phase read mode with exclusions, by calling <A HREF="jmpSetSolidificationPhaseReadMode.htm">jmpSetSolidificationPhaseReadMode()</A> with the parameter value <CODE>JMP_READ_DEFAULT_WITH_EXCLUSIONS</CODE>.</LI>
+      <LI>Only the specified phases that are found in the default set will be excluded. Any phase that is not present will be ignored.</LI>
+      <LI>Make sure that your application can reach the file <CODE><B>inits/jmp.ini</B></CODE>, otherwise an error will occur when running the calculation.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolidification.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolidification.lib</CODE>/<CODE>jmpsolidification_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolidification.dll</CODE>/<CODE>jmpsolidification_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

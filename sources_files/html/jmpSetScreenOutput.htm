@@ -1,0 +1,46 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetScreenOutput()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetScreenOutput()</H1>
+    <P>Defines whether to print calculation progress to screen.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetScreenOutput (int booleanFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>booleanFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies whether status information should be printed to screen as a calculation progresses. Possible values are <CODE>JMP_FLAG_TRUE</CODE> or <CODE>JMP_FLAG_FALSE</CODE>, respectively to turn the display mode on or off.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. The default behaviour is to display calculation progress.</LI>
+      <LI>Calling this function with the parameter value <CODE>JMP_FLAG_FALSE</CODE> only cancels normal output. Error and warning messages will always be displayed.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

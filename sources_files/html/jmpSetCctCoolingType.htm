@@ -1,0 +1,56 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetCctCoolingType()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetCctCoolingType()</H1>
+    <P>Defines the CCT cooling type.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetCctCoolingType (int typeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>typeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the cooling profile to consider when running a CCT calculation. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_CCT_COOLING_CONSTANT</CODE></TD>
+        <TD CLASS="float">To assume the cooling is of a constant rate, i.e., a constant cooling profile.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_CCT_COOLING_NEWTONIAN</CODE></TD>
+        <TD CLASS="float">To assume the cooling is of a Newtonian (or natural) type, i.e., a Newtonian cooling profile.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. By default, CCT diagrams are calculated assuming a constant cooling profile.</LI>
+      <LI>Depending on the specified cooling type, different functions are required to complete the setup of the CCT module.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcct.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcct.lib</CODE>/<CODE>jmpcct_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcct.dll</CODE>/<CODE>jmpcct_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

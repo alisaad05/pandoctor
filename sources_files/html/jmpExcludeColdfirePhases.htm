@@ -1,0 +1,48 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpExcludeColdfirePhases()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpExcludeColdfirePhases()</H1>
+    <P>Defines a list of phases to be excluded from a Coldfire calculation.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpExcludeColdfirePhases (int numPhasesToRemove, char **excludeList);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numPhasesToRemove</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of phases to exclude from the Coldfire calculation.</P>
+    <P><CODE><B>excludeList</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of null-terminated sequences of characters that specifies the list of phases to exclude from the Coldfire calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>A call to this function is necessary after requesting a phase read mode with exclusions, by calling <A HREF="jmpSetColdfirePhaseReadMode.htm">jmpSetColdfirePhaseReadMode()</A> with the parameter value <CODE>JMP_READ_FROM_SOLVER_WITH_EXCLUSIONS</CODE>.</LI>
+      <LI>Only the specified phases that are found in <CODE><B>summary.out</B></CODE> (or a similar user-defined input file) will be excluded from the Coldfire calculation. Any phase that is not present will be ignored.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

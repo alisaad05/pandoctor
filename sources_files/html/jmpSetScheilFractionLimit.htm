@@ -1,0 +1,46 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetScheilFractionLimit()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetScheilFractionLimit()</H1>
+    <P>Defines the liquid fraction value that flags the end of solidification in Scheil-Gulliver calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetScheilFractionLimit (double limit);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>limit</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the amount of liquid (in volume fraction) that will be used to signal the end of a Scheil-Gulliver calculation. When the remaining liquid volume fraction becomes lower than this parameter, the solidification will be considered as complete.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing the Solver to run a Scheil-Gulliver calculation. It is also relevant to set up the Solidification module, since it uses the Solver's Scheil-Gulliver model results as a basis for additional calculations.</LI>
+      <LI>This function call is optional. If you do not specify the Scheil fraction limit, a default value of 0.01 will be assumed.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

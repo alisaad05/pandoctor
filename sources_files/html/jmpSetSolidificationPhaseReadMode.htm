@@ -1,0 +1,61 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetSolidificationPhaseReadMode()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetSolidificationPhaseReadMode()</H1>
+    <P>Defines the phase read mode for the Solidification module.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetSolidificationPhaseReadMode (int modeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>modeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies how to obtain the list of phases to include in a solidification calculation. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_DEFAULT</CODE></TD>
+        <TD CLASS="float">To read phases from the file <CODE><B>inits/jmp.ini</B></CODE>.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_USER_SPECIFIED</CODE></TD>
+        <TD CLASS="float">To read phases from a user-defined list.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_DEFAULT_WITH_EXCLUSIONS</CODE></TD>
+        <TD CLASS="float">To read phases from the file <CODE><B>inits/jmp.ini</B></CODE>, but disregard those present in a given exclusion list.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. If omitted, the Solidification module will read the default set of phases. In this case, you must ensure that your application can reach the file <CODE><B>inits/jmp.ini</B></CODE>, otherwise an error will occur when running the calculation.</LI>
+      <LI>When specifying the parameter value <CODE>JMP_READ_USER_SPECIFIED</CODE>, the list of phases to include in the calculation must be provided, by calling <A HREF="jmpSetSolidificationPhases.htm">jmpSetSolidificationPhases()</A>.</LI>
+      <LI>When specifying the parameter value <CODE>JMP_READ_DEFAULT_WITH_EXCLUSIONS</CODE>, the list of phases to exclude from the calculation must be provided, by calling <A HREF="jmpExcludeSolidificationPhases.htm">jmpExcludeSolidificationPhases()</A>.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolidification.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolidification.lib</CODE>/<CODE>jmpsolidification_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolidification.dll</CODE>/<CODE>jmpsolidification_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

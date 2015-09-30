@@ -1,0 +1,47 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetSolverTemperature()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetSolverTemperature()</H1>
+    <P>Defines the temperature value used for fixed temperature equilibrium calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetSolverTemperature (double temperature);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>temperature</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the temperature at which the Solver module performs a fixed temperature equilibrium calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>A call to this function is necessary to prepare the Solver to run single point or concentration stepping calculations. It may also be used to set up single phase calculations, when only one temperature-composition point is required.</LI>
+      <LI>The input temperature unit may be specified using <A HREF="jmpSetTemperatureUnit.htm">jmpSetTemperatureUnit()</A>.</LI>
+      <LI>To ensure the validity of the calculations, the Solver temperature should not be set to values lower than room temperature.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

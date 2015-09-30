@@ -1,0 +1,60 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetTemperatureUnit()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetTemperatureUnit()</H1>
+    <P>Defines the input temperature unit.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetTemperatureUnit (int unitFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>unitFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the unit used to express input temperatures and temperature intervals. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_TEMPERATURE_UNIT_KELVIN</CODE></TD>
+        <TD CLASS="float">To input temperatures in kelvins.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_TEMPERATURE_UNIT_CELSIUS</CODE></TD>
+        <TD CLASS="float">To input temperatures in degrees Celsius.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_TEMPERATURE_UNIT_FAHRENHEIT</CODE></TD>
+        <TD CLASS="float">To input temperatures in degrees Fahrenheit.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. The default temperature unit is kelvin.</LI>
+      <LI>This function only sets the unit used for input temperature values. The unit used for output values may differ (usually, it is kelvin).</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

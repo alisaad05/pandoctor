@@ -1,0 +1,62 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetColdfirePhaseReadMode()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetColdfirePhaseReadMode()</H1>
+    <P>Defines the phase read mode for the Coldfire module.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetColdfirePhaseReadMode (int modeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>modeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies how to obtain the list of phases to include in a Coldfire calculation. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_FROM_SOLVER</CODE></TD>
+        <TD CLASS="float">To read phases from a Solver output file.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_USER_SPECIFIED</CODE></TD>
+        <TD CLASS="float">To read phases from a user-defined list.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_READ_FROM_SOLVER_WITH_EXCLUSIONS</CODE></TD>
+        <TD CLASS="float">To read phases from a Solver output file, but disregard those present in a given exclusion list.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. The default behaviour is to read the phases to consider in the Coldfire calculation from a Solver output file.</LI>
+      <LI>The Solver output file defaults to <CODE><B>summary.out</B></CODE>. However, a similar file with a different name may be specified, using <A HREF="jmpSetSummaryReadMode.htm">jmpSetSummaryReadMode()</A> and <A HREF="jmpSetUserFilename.htm">jmpSetUserFilename()</A>.</LI>
+      <LI>When specifying the parameter value <CODE>JMP_READ_USER_SPECIFIED</CODE>, the list of phases to include in the calculation must be provided, by calling <A HREF="jmpSetColdfirePhases.htm">jmpSetColdfirePhases()</A>.</LI>
+      <LI>When specifying the parameter value <CODE>JMP_READ_FROM_SOLVER_WITH_EXCLUSIONS</CODE>, the list of phases to exclude from the calculation must be provided, by calling <A HREF="jmpExcludeColdfirePhases.htm">jmpExcludeColdfirePhases()</A>.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

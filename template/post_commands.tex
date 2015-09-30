@@ -1,0 +1,363 @@
+%%------------------------ SI units -------------------------------
+\DeclareSIUnit\udensity{\kilo \gram \per \cubic \metre}
+\DeclareSIUnit\uacceleration{\metre \per \square \second}
+\DeclareSIUnit\uvelocity{\metre \per \second}
+\DeclareSIUnit\uviscosity{\pascal \second}
+\DeclareSIUnit\ubetaT{\per \kelvin}
+\DeclareSIUnit\ubetawl{\per \ucomposition}
+\DeclareSIUnit\udiffusivity{\metre \squared \per \second}
+\DeclareSIUnit\uconductivity{\watt \per \metre \per \kelvin}
+\DeclareSIUnit\uhconvec{\watt\per \square \metre \per \kelvin}
+\DeclareSIUnit\umasscapacity{\joule \per \kilo\gram \per \kelvin}
+\DeclareSIUnit\umassenergy{\joule \per \kilo\gram}
+\DeclareSIUnit\uvolumecapacity{\joule \per \cubic \metre \per \kelvin}
+\DeclareSIUnit\uvolumeenergy{\joule \per \cubic \metre}
+\DeclareSIUnit\udegC{\degreeCelsius}
+\DeclareSIUnit\udegK{\kelvin}
+\DeclareSIUnit\uCR{\kelvin \per \second}
+\DeclareSIUnit\ugradT{\kelvin\per\milli\metre}
+\DeclareSIUnit\utime{\second}
+\DeclareSIUnit\uarea{\square \metre}
+\DeclareSIUnit\uvolume{\cubic \metre}
+
+\DeclareSIUnit\ucomposition{wt.\%}  % used in tables
+\DeclareSIUnit\uslope{\udegK \per \ucomposition}  % used in tables
+\newcommand\bin[3]{#1-\SI{#2}{\ucomposition} #3}	% used in text
+\newcommand\tern[5]{#1-\SI{#2}{\ucomposition} #3-\SI{#4}{\ucomposition} #5} % used in text
+\newcommand\orient[3]{\ensuremath{\brac{\ang{#1},\ang{#2},\ang{#3}}}}	% typset grain orientation
+
+%% ------------------------ MATHs commands--------------------------
+%\renewcommand{matrix}[1]{#1 \rangle} 
+\newcommand{\avg}[1]{\ensuremath{\left \langle  #1 \right \rangle}}
+\newcommand{\brac}[1]{\ensuremath{\left(  #1 \right)}} 
+\newcommand{\curly}[1]{\ensuremath{\left\{  #1 \right\}}}
+\newcommand{\crochet}[1]{ \left[  #1  \right] } 
+\newcommand{\abval}[1]{\ensuremath{\left |  #1 \right |}} 
+\newcommand\norm[1]{\ensuremath{\lVert #1 \rVert}}
+
+\renewcommand\d{\ensuremath{\partial}}
+\newcommand\integral[3]{\ensuremath{\int_{#1} #2\: \mathrm{d}#3}}
+\newcommand{\deriv}[1]{\frac{\partial #1 }{\partial t}}
+\newcommand{\diff}[2]{ \ensuremath{\nabla \cdot \brac{ #1 \nabvec #2}}}
+\newcommand\temp[1]{\ensuremath{\frac{\partial}{\partial t} \brac{#1} }} 
+\newcommand\tempup[1]{\ensuremath{\frac{\partial #1}{\partial t} }} 
+
+%\newcommand{\mtrx}[1]{{\underline{\underline{#1}}} }
+\newcommand{\mtrx}[1]{{\overline{\overline{#1}}} }
+\newcommand{\mat}[1]{{\overline{\overline{#1}}} }
+
+\newcommand{\tausupg}{\ensuremath{\tau_\text{SUPG}}}
+\newcommand{\taupspg}{\ensuremath{\tau_\text{PSPG}}}
+\newcommand{\taulsic}{\ensuremath{\tau_\text{LSIC}}}
+
+\newcommand\hilbert{\ensuremath{\mathscr{H}^1}}
+\newcommand\order{\ensuremath{\mathscr{O}}}
+\newcommand\test{\ensuremath{\mathscr{W}}}
+\newcommand\interp{\ensuremath{\mathscr{P}}}
+\newcommand\Mij{\ensuremath{\mathscr{M}_{ij}}}
+\newcommand\Aij{\ensuremath{\mathscr{A}_{ij}}}
+\newcommand\Kija{\ensuremath{\mathscr{K}1_{ij}}} % diffusion term
+\newcommand\Kijb{\ensuremath{\mathscr{K}2_{ij}}} % boundary condition
+\newcommand\Fi{\ensuremath{\mathscr{F}_{i}}}
+\newcommand\Qi{\ensuremath{\mathscr{Q}_{i}}}
+\newcommand\Ohm{\ensuremath{\Omega}}
+\newcommand\dOhm{\ensuremath{\partial \Ohm}}
+\newcommand\OhmE{\ensuremath{\Ohm_E}}
+\newcommand\dOhmE{\ensuremath{\partial \OhmE}}
+\newcommand\element{\ensuremath{\Ohm_E}}
+\newcommand\brent{\ensuremath{{\brac{\tau}}}}
+\newcommand\brentplus{\ensuremath{{\brac{\tau+1}}}}
+\newcommand\brentzero{\ensuremath{{\brac{\tau=0}}}}
+%--------------------------
+\newcommand\itersymbol{\nu}
+%--------------------------
+\newcommand\iter{\ensuremath{{\brac{\itersymbol}}}}
+\newcommand\iterplus{\ensuremath{{\brac{\itersymbol+1}}}}
+\newcommand\iterminus{\ensuremath{{\brac{\itersymbol-1}}}}
+\newcommand\dRdH{\ensuremath{\frac{\partial R}{\partial H}}}
+\newcommand\dRdT{\ensuremath{\frac{\partial R}{\partial T}}}
+\newcommand\dTdH{\ensuremath{\frac{\partial T}{\partial H}}}
+\newcommand\dTdHjt{\ensuremath{\brac{\partial T/\partial H}_j^{t}}}
+\newcommand\dTdHjk{\ensuremath{\brac{\partial T/\partial H}_j^{\iter}}}
+\newcommand\dTdHjkplus{\ensuremath{\brac{\partial T/\partial H}_j^{\iterplus}}}
+\newcommand\dHdT{\ensuremath{\frac{\partial H}{\partial T}}} 
+\newcommand\dHdTjk{\ensuremath{\brac{\partial H/\partial T}_j^{\iter}}}
+\newcommand\dHdTjkplus{\ensuremath{\brac{\partial H/\partial T}_j^{\iterplus}}}
+\newcommand\dHdTjt{\ensuremath{\brac{\partial H/\partial T}_j^{t}}}
+\newcommand\dRdTijk{\ensuremath{\brac{\frac{\partial R}{\partial T}}_{ij}^{\iter}}}
+\newcommand\dRdHijk{\ensuremath{\brac{\frac{\partial R}{\partial H}}_{ij}^{\iter}}}
+\newcommand\Rjk{\ensuremath{R_{j}^{\iter}}}
+
+\newcommand\nabvec{\ensuremath{\vec{\nabla}}}
+\newcommand\nabmat{\ensuremath{\mat{\nabla}}}
+\newcommand\nabmattransp{\ensuremath{\mat{\nabla^\text{t}}}}
+\newcommand\vit{\ensuremath{\avg{\vl}}}  
+\newcommand\vitf{\ensuremath{\avg{\vf}}}
+\newcommand\vita{\ensuremath{\avg{\va}}}
+\newcommand\strainrateliq{\ensuremath{\avg{\mat{\dot{\varepsilon}^l}}}}
+\newcommand\strainrate{\ensuremath{\mat{\dot{\varepsilon}}}}
+\newcommand\I{\ensuremath{\mat{\mathrm{I}}}}  
+
+%TODO :redundant defnitions rh and rhoh
+%TODO :redundant defnitions rhv and rhohv
+\renewcommand\r{\ensuremath{\avg{ \rho }}}
+\newcommand\rl{\ensuremath{\avg{ \rho }^l}}
+\newcommand\h{\ensuremath{\avg{ h }}}
+\newcommand\rh{\ensuremath{\avg{ \rho h }}}
+\newcommand\rhoh{\ensuremath{\avg{ \rho h }}}
+\newcommand\rhv{\ensuremath{\avg{ \rho h \vec{v} }}}
+\newcommand\rhohv{\ensuremath{\avg{ \rho h \vec{v} }}}
+\newcommand\rcp{\ensuremath{\avg{ \rho C_p }}}
+
+\newcommand\w{\ensuremath{\avg{w}}}
+\newcommand\wi{\ensuremath{\avg{w_i}}}
+%\newcommand\wil{\ensuremath{\avg{w_i}^l}}
+\newcommand\wil{\ensuremath{w_i^l}}
+\newcommand\wis{\ensuremath{w_i^s}}
+\newcommand\gphi{\ensuremath{{g^{\phi}} }}
+\newcommand\wiphi{\ensuremath{\wi^\phi}}
+\newcommand\rphi{\ensuremath{\avg{\rho}^{\phi} }}
+\newcommand\hphi{\ensuremath{\avg{h}^{\phi} }}
+\newcommand\Tk{\ensuremath{T^\iter}}
+\newcommand\Tkplus{\ensuremath{T^\iterplus}}
+\newcommand\Tkinit{\ensuremath{T^{\brac{k=0}}}}
+\newcommand\Hk{\ensuremath{\rh^{\brac{k}}}}
+\newcommand\Hkinit{\ensuremath{\rh^{\brac{k=0}}}}
+\newcommand\source{\ensuremath{\avg{\dot{Q}_{{V}}}}}
+\newcommand\Hj{\ensuremath{H_j}}
+\newcommand\Hjt{\ensuremath{H_j^t}}
+\newcommand\Hjk{\ensuremath{H_j^\iter}}
+\newcommand\Hjkminus{\ensuremath{H_j^{\iterminus}}}
+\newcommand\Hjkplus{\ensuremath{H_j^{\iterplus}}}
+\newcommand\Hkplus{\ensuremath{H^{\iterplus}}}
+\newcommand\Hjtminus{\ensuremath{H_j^{t-\dt}}}
+\newcommand\Hjtplus{\ensuremath{H_j^{t+\dt}}}
+\newcommand\deltaHk{\ensuremath{\Delta H^\iter}}
+\newcommand\deltaHkplus{\ensuremath{\Delta H^\iterplus}}
+\newcommand\Tj{\ensuremath{T_j}}
+\newcommand\Tjt{\ensuremath{T_j^t}}
+\newcommand\Tjk{\ensuremath{T_j^\iter}}
+\newcommand\Tjkminus{\ensuremath{T_j^{\iterminus}}}
+\newcommand\Tjkplus{\ensuremath{T_j^{\iterplus}}}
+\newcommand\Tjtminus{\ensuremath{T_j^{t-\dt}}} 
+\newcommand\Tjtplus{\ensuremath{T_j^{t+\dt}}} 
+\newcommand\nosum{\text{no sum on }j} 
+
+%TODO :redundant defnitions rhoref and rref
+\newcommand\rhoref{\ensuremath{\rho_{\text{ref}}}}
+\newcommand\rref{\ensuremath{\rho_{\text{ref}}}}
+\newcommand\rholref{\ensuremath{\rho_{0}^{l}}}
+\newcommand\Tref{\ensuremath{T_{0}}}
+\newcommand\wlref{\ensuremath{w_{0}^l}}
+\newcommand\wilref{\ensuremath{\wi_{0}^l}}
+\newcommand\betaT{\ensuremath{\beta_T}}
+\newcommand\betawl{\ensuremath{\beta_{\wl}}}
+\newcommand\betawil{\ensuremath{\beta_{\wil}}}
+\newcommand\betawlC{\ensuremath{\beta_{\avg{w_\text{C}}^l}}}
+\newcommand\betawlCR{\ensuremath{\beta_{\avg{w_\text{Cr}}^l}}}
+
+\newcommand\wavg{\ensuremath{\avg{w}}}
+\newcommand\wC{\ensuremath{\avg{w_\text{C}}}}
+\newcommand\wCR{\ensuremath{\avg{w_\text{Cr}}}}
+\newcommand\wl{\ensuremath{\avg{w}^l}}
+\newcommand\ws{\ensuremath{\avg{w}^s}}
+\newcommand\wa{\ensuremath{\avg{w}^a}}
+\newcommand\Cnominal{\ensuremath{{w}_0}}
+\newcommand\Cl{\ensuremath{{w}^l}}
+\newcommand\Clstar{\ensuremath{{w}^{l \text{*}} }}
+\newcommand\Cs{\ensuremath{{w}^s}}
+\newcommand\Csstar{\ensuremath{{w}^{s \text{*}} }}
+
+\renewcommand\k{\ensuremath{k}}
+\newcommand\ml{\ensuremath{{m}^l}}
+\newcommand\ms{\ensuremath{{m}^s}}
+\newcommand\pdas{\ensuremath{{\lambda}_{1}}}
+\newcommand\sdas{\ensuremath{{\lambda}_{2}}} 
+\newcommand\Tcoh{\ensuremath{{T}_{\text{coh}}}} 
+\newcommand\Fos{\ensuremath{\text{Fo}^s}} % Fourier number in the solid
+\newcommand\tsolidif{\ensuremath{t_\text{s}}} % solidification time in Fourier number 
+\newcommand\rev{\ensuremath{V_\text{E}}} % V_\text{RVE}
+\newcommand\Vs{\ensuremath{V^s}}
+\newcommand\Vl{\ensuremath{V^l}}
+\newcommand\Vphi{\ensuremath{V^\phi}}
+\newcommand\psis{\ensuremath{\avg{\psi}^s}}
+\newcommand\psil{\ensuremath{\avg{\psi}^l}}
+\newcommand\gammastar{\ensuremath{{\Gamma}^{\text{*}} }}
+
+\newcommand\rhoM{\ensuremath{\avg{\rho}^M}}
+\newcommand\rhoA{\ensuremath{\avg{\rho}^A}}
+\newcommand\rhof{\ensuremath{\avg{\rho}^F}}
+\newcommand\rhoa{\ensuremath{\avg{\rho}^a}}
+\newcommand\rhol{\ensuremath{\avg{\rho}^l}}
+\newcommand\rhos{\ensuremath{\avg{\rho}^s}}
+\newcommand\rhov{\ensuremath{\avg{\rho \vec{v}}}}
+\newcommand\rholvl{\ensuremath{\rho^l \vl}}
+\newcommand\rhosvs{\ensuremath{\rho^s \vs}}
+\newcommand\cp{\ensuremath{C_p}}
+\newcommand\cpl{\ensuremath{C_p^l}}
+\newcommand\cps{\ensuremath{C_p^s}}
+\newcommand\cpa{\ensuremath{C_p^A}}
+\newcommand\ka{\ensuremath{\avg{\kappa}^a}}  % I added \avg
+\newcommand\kl{\ensuremath{\avg{\kappa}^l}}  % I added \avg
+\newcommand\ks{\ensuremath{\avg{\kappa}^s}}	 % I added \avg
+\newcommand\hf{\ensuremath{\avg{h}^F}}
+\newcommand\ha{\ensuremath{\avg{h}^a}}
+\newcommand\hl{\ensuremath{\avg{h}^l}}
+\newcommand\hs{\ensuremath{\avg{h}^s}}
+\newcommand\gf{\ensuremath{{g^F}}} % double braces useful for additional superscripts
+\newcommand\ga{\ensuremath{{g^a}}} % double braces useful for additional superscripts
+\newcommand\gl{\ensuremath{{g^l}}} % double braces useful for additional superscripts
+\newcommand\gs{\ensuremath{{g^s}}} % double braces useful for additional superscripts
+\newcommand\fl{\ensuremath{{f^l}}} % double braces useful for additional superscripts
+\newcommand\fs{\ensuremath{{f^s}}} % double braces useful for additional superscripts
+\newcommand\pf{\ensuremath{{p^F}}}
+\newcommand\pa{\ensuremath{{p^a}}}
+\newcommand\pl{\ensuremath{{p^l}}}
+\newcommand\ps{\ensuremath{p^s}}
+\newcommand\Da{\ensuremath{D^a}}
+\newcommand\Dl{\ensuremath{D^l}}
+\newcommand\Ds{\ensuremath{D^s}}
+\newcommand\Dphi{\ensuremath{D^\phi}}
+\newcommand\mua{\ensuremath{\mu^a}}
+\newcommand\mul{\ensuremath{\mu^l}}
+\newcommand\mus{\ensuremath{\mu^s}}
+\newcommand\K{\ensuremath{\mathbb{K}}} %permeability
+\newcommand\Kmodif{\ensuremath{\widetilde\K}} %permeability modified for level set
+\newcommand\sigmaa{\ensuremath{\mat{\sigma^a}}}
+\newcommand\sigmal{\ensuremath{\mat{\sigma^l}}}
+\newcommand\sigmas{\ensuremath{\mat{\sigma^s}}}
+
+%interfaces (extra spaces are on purpose)
+\newcommand\liqsol{\ensuremath{l\text{-}s}}
+\newcommand\liqair{\ensuremath{l\text{-}a}}
+\newcommand\solair{\ensuremath{s\text{-}a}}
+\newcommand\vliqsol{\ensuremath{\vec{v^{\liqsol}}}}
+\newcommand\vliqair{\ensuremath{\vec{v^{\liqair}}}}
+\newcommand\vsolair{\ensuremath{\vec{v^{\solair}}}}
+%\newcommand\vliqsol{\ensuremath{\vec{v}^{\liqsol}}}
+%\newcommand\vliqair{\ensuremath{\vec{v}^{\liqair}}}
+%\newcommand\vsolair{\ensuremath{\vec{v}^{\solair}}}
+\newcommand\nliqsol{\ensuremath{\vec{n^{\liqsol}}}}
+\newcommand\nliqair{\ensuremath{\vec{n^{\liqair}}}}
+\newcommand\nsolair{\ensuremath{\vec{n^{\solair}}}}
+
+%\newcommand\vf{\ensuremath{\vec{v}^F}}
+%\newcommand\va{\ensuremath{\vec{v}^a}}
+%\newcommand\vl{\ensuremath{\vec{v}^l}}
+%\newcommand\vs{\ensuremath{\vec{v}^s}}
+%\newcommand\vphi{\ensuremath{\vec{v}^\phi}}
+%\newcommand\vphistar{\ensuremath{\vec{v}^{\phi_1/\phi_2}}}
+%\newcommand\vstar{\ensuremath{\vec{v}^\text{*}}}
+%\newcommand\vlstar{\ensuremath{\vec{v}^{l \text{*}}}}
+%\newcommand\vsstar{\ensuremath{\vec{v}^{s \text{*}}}}
+\newcommand\vf{\ensuremath{\vec{v^F}}}
+\newcommand\va{\ensuremath{\vec{v^a}}}
+\newcommand\vl{\ensuremath{\vec{v^l}}}
+\newcommand\vs{\ensuremath{\vec{v^s}}}
+\newcommand\vM{\ensuremath{\avg{\vec{v}}^M}}
+\newcommand\vA{\ensuremath{\avg{\vec{v}}^A}}
+\newcommand\vphi{\ensuremath{\vec{v^\phi}}}
+\newcommand\vphistar{\ensuremath{\vec{v^{\phi_1/\phi_2}}}}
+\newcommand\vstar{\ensuremath{\vec{v^\text{*}}}}
+\newcommand\vlstar{\ensuremath{\vec{v^{l \text{*}}}}}
+\newcommand\vsstar{\ensuremath{\vec{v^{s \text{*}}}}}
+
+\newcommand\gravity{\ensuremath{\vec{\text{g}}}}
+
+\newcommand\dt{\ensuremath{\Delta t}}
+\newcommand\hext{\ensuremath{h_{\text{ext}}}}
+\newcommand\Text{\ensuremath{T_{\text{ext}}}}
+\newcommand\Ttop{\ensuremath{T_{\text{Top}}}}
+\newcommand\Tbottom{\ensuremath{T_{\text{Bottom}}}}
+
+\newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
+
+% From "Mixing Boussinesq" report
+%\renewcommand\v{\ensuremath{\vec{v}}}  
+\newcommand\Fv{\ensuremath{\vec{F}_{\text{v}}^l}}  
+\newcommand\rhog{\ensuremath{\rho \vec{g}}}  
+\newcommand\rhobouss{\ensuremath{\widetilde{\rho}}} 
+\newcommand\heaviside{\ensuremath{H}}  
+\newcommand{\heavisideM}{ \ensuremath{\heaviside^M}}
+\newcommand{\heavisideA}{ \ensuremath{\heaviside^A}}
+\newcommand\dirac{\ensuremath{\delta \brac{\levelset}}}
+\newcommand\levelset{\ensuremath{\alpha}}
+\newcommand\levelsettest{\ensuremath{\alpha^\text{*}}}
+\newcommand\levelsetSUPG{\ensuremath{\alpha_{SUPG}^\text{*}}}
+\newcommand\levelsetx{\ensuremath{\levelset \brac{\vec{x}}}}
+\newcommand{\mix}[1]{\ensuremath{\widehat{#1}}} % \widehat % \overbrace % \widetilde
+
+% Common nouns and names
+\newcommand{\registered}{\textsuperscript{\textregistered}}
+\newcommand{\cimlib}{\emph{CimLib }}
+\newcommand{\thercast}{\emph{THERCAST\registered }}
+\newcommand{\ccemlcc}{\emph{CCEMLCC }} 
+\newcommand{\doitpoms}{\emph{\copyright DoITPoMS, University of Cambridge}} 
+\newcommand\HtoT{$\text{H2T}$}
+\newcommand\TtoH{$\text{T2H}$}
+\newcommand\carbide{\ensuremath{\text{M}_7 \text{C}_3}}
+
+% Colors
+\newcommand{\red}[1]{{\color{Red} #1}}
+\newcommand{\blue}[1]{{\color{Blue} #1}} 
+\newcommand{\green}[1]{{\color{Green} #1}}
+\newcommand{\gray}[1]{{\color{Gray} #1}} 
+
+% List of acronyms
+\usepackage{tabu}
+
+\newcommand{\listofacronyms}{
+\cleardoublepage
+\section*{List of Acronyms}
+%-----------------------------
+{\footnotesize
+{\tabulinesep=1.5mm
+\begin{tabu}{p{2cm} p{12cm}}
+\tabucline[1pt]{-}
+\textbf{Acronym} & 	\textbf{Standing for} \\\tabucline[1pt]{-}
+%-----------------------------
+ALE		&	Arbitrary Lagrangian-Eulerian 	\\
+BTR		& 	Brittle temperature range 		\\
+CAFD	&	Cellular Automata Finite Difference \\
+CAFE	&	Cellular Automata Finite Element\\
+CBB		&	Circumventing Babuška-Brezzi	\\
+CCEMLCC & 	Chill Cooling for the Electro-Magnetic Levitator in relation with Continuous Casting of steel \\
+CEMEF 	& 	Centre de Mise en Forme des Matériaux 	\\
+CFL		&	Courant–Friedrichs–Lewy 		\\
+C.F.L	&	Computing and FLuids 			\\
+CSF		&	Continuum Surface Force			\\
+DLR		&	Deutsches Zentrum für Luft- und Raumfahrt  \\
+DSPG	&	Darcy-Stabilising/Petrov-Galerkin \\
+EML 	& 	Electromagnetic levitation 		\\
+ESA 	& 	European Space Agency 			\\
+FEM 	& 	Finite Element Method 			\\
+FVM		&	Finite Volume Method			\\ 
+GMAW	& 	Gas Metal Arc Welding			\\
+ISS 	&	International Space Station 	\\
+IWT		&	Institut für Werkstofftechnik 	\\
+LHS		& 	Left-hand side					\\ 
+LSIC	&	Least squares on incompressibility constraint \\
+LSM		&	Level set method				\\
+MAC		&	Marker-and-cell 				\\
+%MIN	&	Mini-element 					\\
+PF		&	Phase field 					\\
+PSPG	&	Pressure-Stabilising/Petrov-Galerkin \\
+RHS		& 	Right-hand side					\\ 
+RUB		& 	Ruhr Universität Bochum 		\\ 
+RVE		&	Representative Elementary Volume\\
+SBB		&	Satisfying Babuška-Brezzi 		\\
+%SCPG	& 	Shock Capturing Petrov-Galerkin	\\
+SUPG	&	Streamline-Upwind/Petrov-Galerkin \\
+VMS		&	Variational MultiScale			\\
+VOF		&	Volume Of Fluid					\\\tabucline[1pt]{-}
+%-----------------------------
+\end{tabu}}
+}
+}
+%--------------
+\newlength{\largeur}
+\newlength{\llargeur}
+\newlength{\llargeurOut}
+\newlength{\rlargeur}
+\newlength{\rlargeurOut}
+%---------------

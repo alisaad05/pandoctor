@@ -1,0 +1,55 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetConcentrationStepping()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetConcentrationStepping()</H1>
+    <P>Defines which element to vary, as well as the concentration range and step size used for variable composition calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetConcentrationStepping (char *varyingElement, double startConcentration, double endConcentration, double stepConcentration);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>varyingElement</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to a null-terminated sequence of characters that specifies the element whose concentration is to be varied.</P>
+    <P><CODE><B>startConcentration</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the concentration of the varying element at the start of the Solver calculation.</P>
+    <P><CODE><B>endConcentration</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the concentration of the varying element at the end of the Solver calculation.</P>
+    <P><CODE><B>stepConcentration</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the concentration interval between consecutive steps.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is required when preparing the Solver to run concentration stepping calculations.</LI>
+      <LI>If the specified varying element is not found in the set of elements in the alloy, then the last element of the set will be used instead.</LI>
+      <LI>The input composition unit may be specified using <A HREF="jmpSetCompositionUnit.htm">jmpSetCompositionUnit()</A>.</LI>
+      <LI>When decreasing the concentration, it is not necessary to specify a negative stepping interval.</LI>
+      <LI>Make sure that the successive alloy compositions are consistent with the material type, otherwise unexpected or unreliable results may be obtained.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

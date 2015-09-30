@@ -1,0 +1,103 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetAlloyElements()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetAlloyElements()</H1>
+    <P>Defines how many and which elements are present in the alloy.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetAlloyElements (int numElements, char **elementList);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numElements</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of elements in the alloy.</P>
+    <P><CODE><B>elementList</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of null-terminated sequences of characters that specifies the list of elements in the alloy.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is required to set up most calculation modules. The only exception is Coldfire, for which the elements in the alloy are read from a Solver output file.</LI>
+      <LI>Depending on the material type, only specific sets of elements are allowed. Valid choices are listed below:</LI>
+      <TABLE COLS="2">
+        <TR>
+          <TD CLASS="fit">Aluminium alloys</TD>
+          <TD CLASS="float">Al, B, Bi, C, Ca, Co, Cr, Cu, Fe, H, La, Li, Mg, Mn, Mo, Ni, Pb, Sc, Si, Sn, Sr, Ti, V, Zn, Zr.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Magnesium alloys</TD>
+          <TD CLASS="float">Mg, Al, Ca, Ce, Cu, Fe, Gd, La, Mn, Nd, Sc, Si, Sn, Sr, Y, Zn, Zr.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Zirconium alloys</TD>
+          <TD CLASS="float">Zr, C, Cr, Fe, H, Hf, N, Nb, Ni, O, Si, Sn.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Titanium alloys</TD>
+          <TD CLASS="float">Ti, Al, B, C, Cr, Cu, Fe, H, Mo, N, Nb, Ni, O, Re, Ru, Si, Sn, Ta, V, Zr.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Cobalt alloys</TD>
+          <TD CLASS="float">Co, Al, B, C, Cr, Fe, Hf, Mn, Mo, N, Nb, Ni, Si, Ta, Ti, W, Zr.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Solder alloys</TD>
+          <TD CLASS="float">Sn, Ag, Al, Au, Bi, Cu, In, Ni, Pb, Sb, Zn.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Nickel-based superalloys</TD>
+          <TD CLASS="float">Ni, Al, B, C, Co, Cr, Cu, Fe, Hf, Mn, Mo, N, Nb, O, Pt, Re, Ru, Si, Ta, Ti, V, W, Zr.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Nickel-iron-based superalloys</TD>
+          <TD CLASS="float">Ni, Al, B, C, Co, Cr, Cu, Fe, Mn, Mo, N, Nb, Si, Ta, Ti, W.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Nickel-based single crystals</TD>
+          <TD CLASS="float">Ni, Al, B, C, Co, Cr, Hf, Mo, Nb, Pt, Re, Ru, Si, Ta, Ti, W.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Cast irons</TD>
+          <TD CLASS="float">Fe, Al, C, Cr, Cu, Mg, Mn, Mo, N, Nb, Ni, P, S, Si, Ta, Ti, V.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Stainless steels</TD>
+          <TD CLASS="float">Fe, Al, C, Co, Cr, Cu, Mn, Mo, N, Nb, Ni, O, P, S, Si, Ti, V, W.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">General steels</TD>
+          <TD CLASS="float">Fe, Al, B, C, Co, Cr, Cu, Mn, Mo, N, Nb, Ni, O, P, S, Si, Ta, Ti, V, W.</TD>
+        </TR>
+        <TR>
+          <TD CLASS="fit">Copper alloys</TD>
+          <TD CLASS="float">Cu, Al, Cr, Fe, Mg, Mn, Ni, P, Pb, Si, Sn, Zn.</TD>
+        </TR>
+      </TABLE>
+      <LI>The base element for a given material type (the first in the sets above, e.g., Fe for steels) should always come first in the specified list of elements.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

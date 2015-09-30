@@ -1,0 +1,46 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetFerriteCheck()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetFerriteCheck()</H1>
+    <P>Defines whether to check for the presence of ferrite prior to TTT/CCT calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetFerriteCheck (int booleanFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>booleanFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies whether to check for the presence of ferrite at the austenitisation temperature before calculating TTT/CCT diagrams. Possible values are <CODE>JMP_FLAG_TRUE</CODE> or <CODE>JMP_FLAG_FALSE</CODE>. If set to <CODE>JMP_FLAG_TRUE</CODE>, the check will be performed and the calculation will proceed only if ferrite is not found. If set to <CODE>JMP_FLAG_FALSE</CODE>, the check will not be performed and the calculation will always run. In any case, the calculation is based on the austenite composition at the austenitisation temperature, assuming austenite is the only phase present at the beginning.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function is only relevant to set up the TTT and CCT modules.</LI>
+      <LI>This function call is optional. The default behaviour is to ignore the presence of ferrite at the beginning of the TTT/CCT calculation.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

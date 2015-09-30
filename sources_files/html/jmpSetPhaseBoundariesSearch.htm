@@ -1,0 +1,47 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetPhaseBoundariesSearch()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetPhaseBoundariesSearch()</H1>
+    <P>Defines whether to search for phase boundaries in stepping or Scheil-Gulliver calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetPhaseBoundariesSearch (int booleanFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>booleanFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies whether to locate phase boundaries (i.e., the temperature or concentration values at which phases appear or disappear) when running a Solver stepping or Scheil-Gulliver calculation. Possible values are <CODE>JMP_FLAG_TRUE</CODE> or <CODE>JMP_FLAG_FALSE</CODE>, respectively to perform the search or not.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing the Solver to run temperature, concentration, or extended stepping, as well as Scheil-Gulliver calculations. It is also relevant to set up the Solidification module, since it uses the Solver's Scheil-Gulliver model results as a basis for additional calculations.</LI>
+      <LI>This function call is optional. The default behaviour is to locate phase boundaries as the calculation progresses.</LI>
+      <LI>Searching for phase boundaries is a difficult task with impact on the performance of the API. Calling this function with the parameter value <CODE>JMP_FLAG_FALSE</CODE> will generally lead to faster and less error-prone calculations.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

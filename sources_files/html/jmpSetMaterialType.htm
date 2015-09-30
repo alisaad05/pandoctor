@@ -1,0 +1,100 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetMaterialType()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetMaterialType()</H1>
+    <P>Prepares the API to run calculations for a given material type.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetMaterialType (int typeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>typeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the material type to consider in calculations. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_ALUMINIUM_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for aluminium alloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_MAGNESIUM_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for magnesium alloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_ZIRCONIUM_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for zirconium alloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_TITANIUM_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for titanium alloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_COBALT_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for cobalt alloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_SOLDER_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for solder alloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_NICKEL_BASED_SUPERALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for nickel-based superalloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_NICKEL_IRON_BASED_SUPERALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for nickel-iron-based superalloys.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_SINGLE_CRYSTAL</CODE></TD>
+        <TD CLASS="float">To set up calculations for nickel-based single crystals.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_CAST_IRON</CODE></TD>
+        <TD CLASS="float">To set up calculations for cast irons.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_STAINLESS_STEEL</CODE></TD>
+        <TD CLASS="float">To set up calculations for stainless steels.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_GENERAL_STEEL</CODE></TD>
+        <TD CLASS="float">To set up calculations for general steels.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MATERIAL_COPPER_ALLOY</CODE></TD>
+        <TD CLASS="float">To set up calculations for copper alloys.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function is critical to the performance of the API. Omitting this function call will always result in failure to run a calculation.</LI>
+      <LI>Make sure that the specified material type is consistent with the alloy you wish to study, otherwise unexpected or unreliable results may be obtained.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

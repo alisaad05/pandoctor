@@ -1,0 +1,51 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetTitaniumGrainSizes()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetTitaniumGrainSizes()</H1>
+    <P>Defines the alpha and beta grain sizes to be considered in the calculation of mechanical properties for titanium alloys.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetTitaniumGrainSizes (int numGrainSizes, double *alphaGrainSizes, double *betaGrainSizes);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numGrainSizes</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of grain sizes to consider in the calculation.</P>
+    <P><CODE><B>alphaGrainSizes</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of doubles that specifies the set of alpha grain sizes to consider in the calculation. May be set to <CODE>NULL</CODE> if the alpha phase is not present in the alloy.</P>
+    <P><CODE><B>betaGrainSizes</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of doubles that specifies the set of beta grain sizes to consider in the calculation. May be set to <CODE>NULL</CODE> if the beta phase is not present in the alloy.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is required when preparing Coldfire to perform the calculation of room-temperature matrix mechanical properties for titanium alloys. For all other material types, only one set of matrix grain sizes is needed, and the function <A HREF="jmpSetGrainSizes.htm">jmpSetGrainSizes()</A> must be used instead.</LI>
+      <LI>The input grain size unit may be specified using <A HREF="jmpSetGrainSizeUnit.htm">jmpSetGrainSizeUnit()</A>.</LI>
+      <LI>When there is only one matrix phase (either alpha or beta), the grain sizes for the other phase become irrelevant, and the <CODE>NULL</CODE> pointer should be passed where appropriate.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

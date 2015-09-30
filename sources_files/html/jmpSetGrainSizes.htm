@@ -1,0 +1,48 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetGrainSizes()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetGrainSizes()</H1>
+    <P>Defines the matrix grain sizes to be considered in the calculation of mechanical properties for most alloy types.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetGrainSizes (int numGrainSizes, double *grainSizes);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numGrainSizes</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the number of grain sizes to consider in the calculation.</P>
+    <P><CODE><B>grainSizes</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to an array of doubles that specifies the set of matrix grain sizes to consider in the calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is required when preparing Coldfire to perform the calculation of room-temperature matrix mechanical properties for all material types, with the exception of titanium alloys. For these, sets of alpha and beta grain sizes are generally needed, and the function <A HREF="jmpSetTitaniumGrainSizes.htm">jmpSetTitaniumGrainSizes()</A> must be used instead.</LI>
+      <LI>The input grain size unit may be specified using <A HREF="jmpSetGrainSizeUnit.htm">jmpSetGrainSizeUnit()</A>.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

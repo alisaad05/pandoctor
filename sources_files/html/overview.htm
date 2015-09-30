@@ -1,0 +1,32 @@
+<HTML>
+  <HEAD>
+    <TITLE>Overview</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>Overview</H1>
+    <P>The <A HREF="http://www.sentesoftware.co.uk/jmatpro.aspx" TARGET="_blank">JMatPro software</A> is devoted to the calculation of a wide range of materials properties for multicomponent alloys used in industrial practice. The JMatPro API allows you to incorporate some of its functionality into your own applications. Version 1.0 provides <A HREF="modules.htm">calculation modules</A> for:</P>
+    <UL>
+      <LI>Stable and metastable phase equilibria</LI>
+      <LI>Physical and thermophysical properties</LI>
+      <LI>Room-temperature matrix mechanical properties</LI>
+      <LI>Solidification phases and properties</LI>
+      <LI>Time-temperature transformation (TTT) diagrams</LI>
+      <LI>Continuous cooling transformation (CCT) diagrams</LI>
+    </UL>
+    <H2>Prerequisites</H2>
+    <P>Before you can begin creating applications that use the JMatPro API, you must first ensure that your development environment meets the requirements listed below:</P>
+    <UL>
+      <LI>The API is written in C and requires that the Microsoft Visual Studio 2010 C/C++ runtime libraries are installed in your system. They can be obtained from the <A HREF="http://www.microsoft.com/en-gb/download/details.aspx?id=26999" TARGET="_blank">Microsoft download centre</A>.</LI>
+      <LI>Supported operating systems include Microsoft Windows XP (with Service Pack 3), Vista (with Service Pack 2), 7, and 8.x. Linux and Mac OS X are not supported.</LI>
+      <LI>Also needed is a Sentinel protection key, along with a valid user license. To obtain a new license, or renew an existing one, please contact a <A HREF="http://www.sentesoftware.co.uk/contact-us.aspx" TARGET="_blank">Sente Software representative</A>.</LI>
+    </UL>
+    <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;If you wish to use an appropriate Sentinel key over a network, or monitor the keys available on your machine, then you must also install the Sentinel runtime drivers. This may be accomplished by using the setup utility provided in the subdirectory <CODE><B>Sentinel</B></CODE> in the API installation directory.</P>
+    <H2>Compiling and running your application</H2>
+    <UL>
+      <LI>To successfully compile an application that uses the JMatPro API in a 32/64-bit C/C++ development environment, you must ensure that the compiler can find the required header and library files. Two sets of library files are provided in the subdirectories <CODE><B>Lib/win32</B></CODE> and <CODE><B>Lib/x64</B></CODE> in the API installation directory. These should be used for 32-bit and 64-bit applications, respectively. The header files, on the other hand, are independent of the build architecture and are located in the subdirectory <CODE><B>Include</B></CODE> in the API installation directory.</LI>
+      <LI>At runtime, your application will need access to the JMatPro dynamic-link libraries (DLLs), configuration and database files, as well as the Sentinel protection key and its controller files. The required files can all be found in the subdirectories <CODE><B>Runtime/win32</B></CODE> (for 32-bit applications) and <CODE><B>Runtime/x64</B></CODE> (for 64-bit applications) in the API installation directory. To successfully run the application, you should make sure that the Sentinel key is connected, the contents of <CODE><B>Runtime/win32</B></CODE> or <CODE><B>Runtime/x64</B></CODE> (depending on the desired build architecture) should be placed at the same level as your executable file, and the directory structure should be kept intact.</LI>
+    </UL>
+    <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;For detailed examples illustrating how to set up and run JMatPro API calculations, refer to the Microsoft Visual Studio 2010 solutions provided in the subdirectory <CODE><B>Samples</B></CODE> in the API installation directory.</P>
+  </BODY>
+</HTML>

@@ -1,0 +1,84 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetSolverCalculationType()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetSolverCalculationType()</H1>
+    <P>Defines the Solver calculation type.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetSolverCalculationType (int typeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>typeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the type of calculation to perform when running the Solver. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_TEMPERATURE_STEPPING</CODE></TD>
+        <TD CLASS="float">To perform a multiphase equilibrium calculation at fixed composition and varying the temperature at a given step.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_CONCENTRATION_STEPPING</CODE></TD>
+        <TD CLASS="float">To perform a multiphase equilibrium calculation at fixed temperature and variable composition. The concentration of a chosen element is varied at a given step and balanced against one or all of the remaining elements in the alloy.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_SINGLE_POINT</CODE></TD>
+        <TD CLASS="float">To perform a multiphase equilibrium calculation at fixed temperature and composition.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_SINGLE_PHASE</CODE></TD>
+        <TD CLASS="float">To perform an equilibrium calculation for a single phase. It may be set up for one or multiple temperature-composition points.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_MULTIPLE_POINTS</CODE></TD>
+        <TD CLASS="float">To perform a multiphase equilibrium calculation for a set of arbitrary temperatures and compositions.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_EXTENDED_STEPPING</CODE></TD>
+        <TD CLASS="float">To extend the calculation of thermodynamic properties below a heat treatment temperature. First, equilibrium stepping at a given composition is performed until reaching the heat treatment temperature. Then, the phase structure is kept frozen and thermodynamic properties are calculated down to room temperature.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_SCHEIL_GULLIVER</CODE></TD>
+        <TD CLASS="float">To perform a nonequilibrium Scheil-Gulliver calculation.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_T0_ENERGY_CHANGE</CODE></TD>
+        <TD CLASS="float">To perform a calculation that finds the temperature T<SUB>0</SUB>, at which the Gibbs energy of two phases with identical composition is the same.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_SOLVER_CALCULATION_GIBBS_ENERGY_DIFFERENCE</CODE></TD>
+        <TD CLASS="float">To calculate the Gibbs energy difference between two phases with identical composition in a given temperature range.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. By default, the Solver performs a temperature stepping calculation.</LI>
+      <LI>Depending on the specified calculation type, different functions are required to complete the setup of the Solver module.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

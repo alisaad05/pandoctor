@@ -1,0 +1,104 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpUnsetPhysicalProperty()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpUnsetPhysicalProperty()</H1>
+    <P>Removes one or more physical properties from the Coldfire calculation set.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpUnsetPhysicalProperty (int propertyToRemove);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>propertyToRemove</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the property (or set of properties) you wish to exclude from the list of physical and thermophysical properties to be calculated when running Coldfire. This parameter can take one or any combination of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_DENSITY</CODE></TD>
+        <TD CLASS="float">To exclude density from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_MOLAR_VOLUME</CODE></TD>
+        <TD CLASS="float">To exclude molar volume from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_VISCOSITY</CODE></TD>
+        <TD CLASS="float">To exclude viscosity from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_DIFFUSIVITY</CODE></TD>
+        <TD CLASS="float">To exclude diffusivity from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_SURFACE_TENSION</CODE></TD>
+        <TD CLASS="float">To exclude surface tension from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_YOUNGS_MODULUS</CODE></TD>
+        <TD CLASS="float">To exclude Young's modulus from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_BULK_MODULUS</CODE></TD>
+        <TD CLASS="float">To exclude bulk modulus from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_SHEAR_MODULUS</CODE></TD>
+        <TD CLASS="float">To exclude shear modulus from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_POISSONS_RATIO</CODE></TD>
+        <TD CLASS="float">To exclude Poisson's ratio from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_THERMAL_CONDUCTIVITY</CODE></TD>
+        <TD CLASS="float">To exclude thermal conductivity from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_THERMAL_DIFFUSIVITY</CODE></TD>
+        <TD CLASS="float">To exclude thermal diffusivity from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_ELECTRICAL_CONDUCTIVITY</CODE></TD>
+        <TD CLASS="float">To exclude electrical conductivity from the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHYSICAL_PROPERTY_ELECTRICAL_RESISTIVITY</CODE></TD>
+        <TD CLASS="float">To exclude electrical resistivity from the calculation set.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing Coldfire to perform the calculation of physical and thermophysical properties. It is also relevant to set up the Solidification module, since it uses Coldfire to calculate physical and thermophysical properties during solidification.</LI>
+      <LI>This function call is optional. By default, no property will be excluded from the calculation.</LI>
+      <LI>Property flags may be combined in a bitwise manner and unset with a single function call, as shown in the code snippet below:</LI>
+      <P CLASS="code-block">jmpUnsetPhysicalProperty (JMP_PHYSICAL_PROPERTY_DENSITY | JMP_PHYSICAL_PROPERTY_MOLAR_VOLUME);</P>
+      <LI>The parameter value <CODE>JMP_PHYSICAL_PROPERTY_ALL</CODE> is also defined, and may be used as a shorthand to remove all properties at once.</LI>
+    </UL>
+    <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;Coldfire always adds enthalpy, specific heat, and latent heat to the list of physical and thermophysical properties. These quantities can never be excluded from the calculation.</P>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

@@ -1,0 +1,67 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetPhaseStatus()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetPhaseStatus()</H1>
+    <P>Defines the status attribute for a given phase.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetPhaseStatus (char *phaseName, int statusFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>phaseName</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to a null-terminated sequence of characters that specifies the phase whose status attribute you wish to change.</P>
+    <P><CODE><B>statusFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the status attribute to set. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHASE_STATUS_ACTIVE</CODE></TD>
+        <TD CLASS="float">To treat the phase normally, without any special checks being performed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHASE_STATUS_DORMANT</CODE></TD>
+        <TD CLASS="float">To neglect the phase in a Solver equilibrium calculation, but compute its formation driving force and output the results to file <CODE><B>dg.out</B></CODE>. More information on this file can be found in <A HREF="jmpRunSolverCalculation.htm">jmpRunSolverCalculation()</A>.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHASE_STATUS_STOP_WHEN_ABSENT</CODE></TD>
+        <TD CLASS="float">To perform the Solver calculation only if the phase is present at the starting point, and subsequently abort it as soon as the phase disappears. The latter requires running a stepping calculation with phase boundaries search.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_PHASE_STATUS_STOP_WHEN_PRESENT</CODE></TD>
+        <TD CLASS="float">To perform the Solver calculation only if the phase is not present at the starting point, and subsequently abort it as soon as the phase appears. The latter requires running a stepping calculation with phase boundaries search.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. By default, all phases are flagged as active. The only potential exception is the phase <CODE>(FE,NI)AL</CODE> of stainless steels, which is flagged as dormant unless both aluminium and nickel are present in the alloy, or when running concentration stepping or multiple points calculations.</LI>
+      <LI>The dormant status attribute should only be used for multiphase equilibrium calculations. When set for single phase, Scheil-Gulliver, T<SUB>0</SUB> energy change, or Gibbs energy difference calculations, it has the same effect as excluding the phase from the calculation, and could result in an error.</LI>
+      <LI>When requested, the check for the presence (or absence) of a specific phase is performed at the beginning of every Solver calculation. Subsequent checks only apply for temperature, concentration, or extended stepping, as well as Scheil-Gulliver calculations, and require that phase boundaries search is turned on.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

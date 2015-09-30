@@ -1,0 +1,75 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpGetFoundPhases()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpGetFoundPhases()</H1>
+    <P>Retrieves the phases present in a Solver output file.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpGetFoundPhases (int *numPhases, char **phaseList);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>numPhases</B> [output]</CODE></P>
+    <P CLASS="indent">Pointer to an integer that will contain the number of phases found in the Solver output file.</P>
+    <P><CODE><B>phaseList</B> [output]</CODE></P>
+    <P CLASS="indent">Pointer to an array that will be filled with null-terminated sequences of characters representing each of the phases found in the Solver output file.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>By default, this function looks for phases in the Solver output file <CODE><B>summary.out</B></CODE>. However, a similar file with a different name may be specified, using <A HREF="jmpSetSummaryReadMode.htm">jmpSetSummaryReadMode()</A> and <A HREF="jmpSetUserFilename.htm">jmpSetUserFilename()</A>.</LI>
+      <LI>When calling this function, you are responsible for allocating enough memory to hold all the phases found. Also, the allocated memory should be freed when it is not useful any more. Consider structuring your code as illustrated below:</LI>
+      <P CLASS="code-block">
+            // Required variables
+        <BR>const int maxNumPhases = 100;
+        <BR>const int bufferSize = 30;
+        <BR>int i, status, numPhases;
+        <BR>char **phaseList;
+        <BR>
+        <BR>// Allocate memory to store the list of phases
+        <BR>phaseList = new char *[maxNumPhases];
+        <BR>
+        <BR>for (i = 0; i < maxNumPhases; i++)
+        <BR>&nbsp;&nbsp;phaseList [i] = new char [bufferSize];
+        <BR>
+        <BR>// Retrieve the number of phases found and fill the phaseList array
+        <BR>status = jmpGetFoundPhases (&numPhases, phaseList);
+        <BR>
+        <BR>if (status == JMP_STATUS_OK)
+        <BR>{
+        <BR>&nbsp;&nbsp;// Use the list of phases here
+        <BR>}
+        <BR>
+        <BR>// Free memory after use
+        <BR>for (i = 0; i < maxNumPhases; i++)
+        <BR>&nbsp;&nbsp;delete [] phaseList [i];
+        <BR>
+        <BR>delete [] phaseList;
+      </P>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

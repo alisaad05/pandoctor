@@ -1,0 +1,48 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetWorkingDirectory()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetWorkingDirectory()</H1>
+    <P>Defines the working directory, where temporary and output files are written to.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetWorkingDirectory (char *path);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>path</B> [input]</CODE></P>
+    <P CLASS="indent">Pointer to a null-terminated sequence of characters that specifies the path to the directory where temporary and output files are to be written to, i.e., the working directory. The path may be absolute or relative to the directory where the executable resides.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. If you do not specify a working directory, then it will default to <CODE><B>temp</B></CODE> at the same level as the executable file.</LI>
+      <LI>The input path should include the trailing slash, as shown in the code snippet below:</LI>
+      <P CLASS="code-block">jmpSetWorkingDirectory ("temp/");</P>
+      <LI>Also, you should make sure that the specified working directory exists, otherwise errors will ensue when running calculations.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

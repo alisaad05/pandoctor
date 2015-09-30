@@ -1,0 +1,53 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpRunColdfireCalculation()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpRunColdfireCalculation()</H1>
+    <P>Runs a Coldfire calculation.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpRunColdfireCalculation (void);</P>
+    <H2>Parameters</H2>
+    <P>This function has no parameters.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Output files</H2>
+    <P><CODE><B>coldfire.out</B></CODE></P>
+    <P CLASS="indent">When performing the calculation of physical and thermophysical properties, output results are written to this file in tab-separated format. The properties are calculated for the whole temperature or concentration range found in the input file (<CODE><B>summary.out</B></CODE> or similar) and, when relevant, they are given as property per phase. In addition to the quantities specified with <A HREF="jmpSetPhysicalProperty.htm">jmpSetPhysicalProperty()</A>, the phase amounts, enthalpy, specific heat, and latent heat will always be computed.</P>
+    <P CLASS="indent">In the case of room-temperature matrix mechanical properties, the calculated values are output to this file in block format. Each data block includes the grain size (or set of alpha and beta grain sizes, for titanium alloys) and heat treatment temperature (or concentration of the varying element, for input files obtained from concentration stepping calculations), together with the results obtained for every property specified with <A HREF="jmpSetMechanicalProperty.htm">jmpSetMechanicalProperty()</A>.</P>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>Make sure that your application can access the required DLLs, configuration and database files, otherwise an error will occur. To successfully run a calculation, the contents of the subdirectory <CODE><B>Runtime/win32</B></CODE> (for 32-bit applications) or <CODE><B>Runtime/x64</B></CODE> (for 64-bit applications), found in the API installation directory, should be placed at the same level as your executable file.</LI>
+      <LI>The output file will be saved in the working directory, which can be set using <A HREF="jmpSetWorkingDirectory.htm">jmpSetWorkingDirectory()</A>.</LI>
+      <LI>Strictly speaking, Coldfire will read input data from the file <CODE><B>coldfire.in</B></CODE>, which can also be found in the working directory. This is essentially a copy of the Solver output file <CODE><B>summary.out</B></CODE>, or a similar user-defined file.</LI>
+      <LI>When performing several calculations in a row, be sure to extract the data that you need or rename the output file at each step, as it will be overwritten.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLLs</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE>
+          <BR><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE>
+        </TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpRunCctCalculation()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpRunCctCalculation()</H1>
+    <P>Runs a CCT calculation.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpRunCctCalculation (void);</P>
+    <H2>Parameters</H2>
+    <P>This function has no parameters.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Output files</H2>
+    <P><CODE><B>cct.out</B></CODE></P>
+    <P CLASS="indent">The output of a CCT calculation is written to this file in several blocks of data. Standard transformation temperatures are printed in the header, which is followed by the temperature-time pairs for each product phase to reach its start fraction, calculated as a function of cooling rate or t<SUB>85</SUB> parameter. These are given in separate blocks for ferrite, pearlite, and bainite, unless any of these phases cannot be found in the system. Similar results are printed next for the transformation end point, as well as for martensite start, 50%, and 90% formation levels (whenever martensite is present in the alloy). The final block provides the room-temperature microstructure (in volume fraction) and mechanical properties, calculated as a function of cooling rate or t<SUB>85</SUB> parameter.</P>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>The CCT module can only be used for general steels. Attempting to run a CCT calculation for any other material type will result in an error.</LI>
+      <LI>Make sure that your application can access the required DLLs, configuration and database files, otherwise an error will occur. To successfully run a calculation, the contents of the subdirectory <CODE><B>Runtime/win32</B></CODE> (for 32-bit applications) or <CODE><B>Runtime/x64</B></CODE> (for 64-bit applications), found in the API installation directory, should be placed at the same level as your executable file.</LI>
+      <LI>The output file will be saved in the working directory, which can be set using <A HREF="jmpSetWorkingDirectory.htm">jmpSetWorkingDirectory()</A>.</LI>
+      <LI>When performing several calculations in a row, be sure to extract the data that you need or rename the output file at each step, as it will be overwritten.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcct.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcct.lib</CODE>/<CODE>jmpcct_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLLs</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE>
+          <BR><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE>
+          <BR><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE>
+          <BR><CODE>jmpcct.dll</CODE>/<CODE>jmpcct_x64.dll</CODE>
+        </TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

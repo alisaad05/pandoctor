@@ -1,0 +1,67 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetMechanicalProperty()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetMechanicalProperty()</H1>
+    <P>Adds one or more mechanical properties to the Coldfire calculation set.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetMechanicalProperty (int propertyToAdd);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>propertyToAdd</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the property (or set of properties) you wish to include in the list of mechanical properties to be calculated when running Coldfire. This parameter can take one or any combination of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_YIELD_STRESS</CODE></TD>
+        <TD CLASS="float">To include yield stress in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_TENSILE_STRESS</CODE></TD>
+        <TD CLASS="float">To include tensile stress in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_HARDNESS</CODE></TD>
+        <TD CLASS="float">To include Vickers hardness in the calculation set.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_MECHANICAL_PROPERTY_HALL_PETCH</CODE></TD>
+        <TD CLASS="float">To include Hall-Petch coefficient in the calculation set.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function applies when preparing Coldfire to perform the calculation of room-temperature matrix mechanical properties.</LI>
+      <LI>This function call is optional. By default, every property will be included in the calculation.</LI>
+      <LI>Property flags may be combined in a bitwise manner and set with a single function call, as shown in the code snippet below:</LI>
+      <P CLASS="code-block">jmpSetMechanicalProperty (JMP_MECHANICAL_PROPERTY_HARDNESS | JMP_MECHANICAL_PROPERTY_HALL_PETCH);</P>
+      <LI>The parameter value <CODE>JMP_MECHANICAL_PROPERTY_ALL</CODE> is also defined, and may be used as a shorthand to add all properties at once.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

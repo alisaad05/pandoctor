@@ -1,0 +1,46 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetTttStepTemperature()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetTttStepTemperature()</H1>
+    <P>Defines the step temperature used for TTT calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetTttStepTemperature (double stepTemperature);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>stepTemperature</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the temperature interval between the various isothermals considered in a TTT calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. If you do not specify the TTT step temperature, a default value of 10 °C will be assumed.</LI>
+      <LI>The input temperature unit may be specified using <A HREF="jmpSetTemperatureUnit.htm">jmpSetTemperatureUnit()</A>. Note, however, that in this case changing between kelvins and degrees Celsius has no effect.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpttt.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpttt.lib</CODE>/<CODE>jmpttt_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpttt.dll</CODE>/<CODE>jmpttt_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

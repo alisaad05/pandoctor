@@ -1,0 +1,47 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetStartTransformationFraction()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetStartTransformationFraction()</H1>
+    <P>Defines the fraction value that flags the start of austenite decomposition in TTT/CCT calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetStartTransformationFraction (double startFraction);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>startFraction</B> [input]</CODE></P>
+    <P CLASS="indent">Double that specifies the amount (in volume fraction) of a newly formed phase that will be taken as the beginning of austenite decomposition when calculating TTT/CCT diagrams.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function is only relevant to set up the TTT and CCT modules.</LI>
+      <LI>This function call is optional. If you do not specify the start transformation fraction, a default value of 0.01 will be assumed.</LI>
+    </UL>
+    <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;The value specified for the start transformation fraction is also used to signal the completion of austenite decomposition. When the remaining austenite volume fraction becomes lower than such value, the transformation is considered to be complete.</P>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

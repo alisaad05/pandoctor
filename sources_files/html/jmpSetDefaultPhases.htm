@@ -1,0 +1,45 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetDefaultPhases()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetDefaultPhases()</H1>
+    <P>Reads the phases to be included in a Solver calculation from the file <CODE><B>inits/jmp.ini</B></CODE>.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetDefaultPhases (void);</P>
+    <H2>Parameters</H2>
+    <P>This function has no parameters.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. However, if you do not include the default set of phases in the Solver calculation, then a user-defined list must be provided instead, via <A HREF="jmpSetSolverPhases.htm">jmpSetSolverPhases()</A>.</LI>
+      <LI>Make sure that your application can reach the file <CODE><B>inits/jmp.ini</B></CODE>, otherwise an error will occur.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

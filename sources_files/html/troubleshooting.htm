@@ -1,0 +1,26 @@
+<HTML>
+  <HEAD>
+    <TITLE>Troubleshooting</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>Troubleshooting</H1>
+    <P>If an error occurs while running an application that uses the JMatPro API, a message will usually be displayed explaining the problem. The following describes the most frequently encountered issues and how you may resolve them:</P>
+    <UL>
+      <LI><B>An error message indicates that a file cannot be found.</B> To resolve this issue, you must ensure that your application can access the required DLLs, configuration and database files at all times. These are provided in the subdirectories <CODE><B>Runtime/win32</B></CODE> and <CODE><B>Runtime/x64</B></CODE> in the API installation directory, which should be used for 32-bit and 64-bit applications, respectively. The contents of the appropriate subdirectory should be placed at the same level as your executable file and its structure should be kept intact.</LI>
+      <LI><B>An error message indicates that a calculation is already running.</B> Since the JMatPro API is not thread-safe, attempting to run several calculations in concurrent threads will result in failure. Simply wait for a calculation to finish before you begin setting up and running a new one.</LI>
+      <LI><B>An error message indicates that the Sentinel USB key cannot be found.</B> Should this happen, you must first ensure that the Sentinel key is correctly plugged in. If the problem persists, you should check whether the Sentinel key is being recognised by your system. If you are connecting remotely, make sure that the runtime drivers are properly installed, and that a firewall or anti-virus software is not blocking the TCP/UDP port 1947. Also, you may be having trouble picking up the right key, in which case specifying the precise server name (or IP address) in the first line of the file <CODE><B>configs/system.def</B></CODE> may solve the issue. Otherwise, you may be experiencing a network problem and should seek the help of your network administrator.</LI>
+      <P CLASS="note-block"><B>Note</B>&nbsp;&nbsp;You may monitor the Sentinel keys available on your machine (that can be reached locally or through a remote server) by following the link <A HREF="http://localhost:1947/_int_/devices.html" TARGET="_blank">http://localhost:1947/_int_/devices.html</A>. Provided that the runtime drivers are correctly installed, the <B>Sentinel Admin Control Center</B> web page should appear with the desired information.</P>
+      <LI><B>An error message indicates that the license is invalid.</B> If you receive this or a similar message, and are not experiencing any issues with the Sentinel protection key, then your license may not be appropriate to use a specific API functionality, or it may have expired. If you wish to obtain a new license, or renew an existing one, please contact a <A HREF="http://www.sentesoftware.co.uk/contact-us.aspx" TARGET="_blank">Sente Software representative</A>.</LI>
+    </UL>
+    <H2>Calculation tips</H2>
+    <P>Occasionally, you may come across a particularly difficult calculation that takes a long time to run or even fails because of numerical instabilities. To help mitigate these issues, you may observe the following suggestions:</P>
+    <UL>
+      <LI>To avoid unexpected or unreliable results, the alloy composition should be consistent with the material type.</LI>
+      <LI>To obtain a more robust calculation, consider removing impurity elements with a very small concentration.</LI>
+      <LI>For Solver stepping calculations, you may use a different starting point (especially a higher temperature) and/or reduce the step size.</LI>
+      <LI>For Scheil-Gulliver calculations, it is recommended to use a sufficiently small step size, of 5 °C or less.</LI>
+      <LI>Searching for phase boundaries is a difficult task which may cause problems in Solver calculations. If not necessary, consider disabling this feature, as doing so will generally lead to faster and less error-prone calculations.</LI>
+    </UL>
+  </BODY>
+</HTML>

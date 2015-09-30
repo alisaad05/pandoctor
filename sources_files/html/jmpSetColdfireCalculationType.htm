@@ -1,0 +1,58 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetColdfireCalculationType()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetColdfireCalculationType()</H1>
+    <P>Defines the Coldfire calculation type.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetColdfireCalculationType (int typeFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>typeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the type of calculation to perform when running Coldfire. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_COLDFIRE_CALCULATION_PHYSICAL_PROPERTIES</CODE></TD>
+        <TD CLASS="float">To calculate physical and thermophysical properties.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_COLDFIRE_CALCULATION_MECHANICAL_PROPERTIES</CODE></TD>
+        <TD CLASS="float">To calculate room-temperature matrix mechanical properties, with contributions from solid solution and grain boundary strengthening.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. By default, Coldfire performs the calculation of physical and thermophysical properties.</LI>
+      <LI>Depending on the specified calculation type, different functions are required to complete the setup of the Coldfire module.</LI>
+      <LI>In Coldfire calculations, Poisson’s ratio, as well as Young’s, bulk, and shear moduli are classified as physical properties.</LI>
+      <LI>Currently, the calculation of room-temperature matrix mechanical properties is only possible for steels, aluminium, cobalt, and titanium alloys, as well as nickel and nickel-iron based superalloys.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcoldfire.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.lib</CODE>/<CODE>jmpcoldfire_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcoldfire.dll</CODE>/<CODE>jmpcoldfire_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

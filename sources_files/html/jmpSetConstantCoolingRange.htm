@@ -1,0 +1,48 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetConstantCoolingRange()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetConstantCoolingRange()</H1>
+    <P>Defines the exponents used to obtain the limiting rates for constant cooling.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetConstantCoolingRange (int slowRateExponent, int fastRateExponent);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>slowRateExponent</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the exponent used to determine the minimum value of the constant cooling range, calculated as a power of 10. Provides the slowest cooling rate to consider in the CCT calculation.</P>
+    <P><CODE><B>fastRateExponent</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the exponent used to determine the maximum value of the constant cooling range, calculated as a power of 10. Provides the fastest cooling rate to consider in the CCT calculation.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function is only relevant to set up the calculation of CCT diagrams using a constant cooling profile.</LI>
+      <LI>This function call is optional. If omitted, default values of -2 and 2 will be assumed for the slow and fast rate exponents, respectively.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpcct.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcct.lib</CODE>/<CODE>jmpcct_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcct.dll</CODE>/<CODE>jmpcct_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

@@ -1,0 +1,60 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetBalancing()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetBalancing()</H1>
+    <P>Defines the balancing mode used for variable composition calculations.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetBalancing (int modeFlag, char *balanceElement);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>modeFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the type of balancing to perform when running a concentration stepping calculation. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_BALANCE_ONE_ELEMENT</CODE></TD>
+        <TD CLASS="float">To compensate the change in concentration of the varying element by applying a reverse change to one of the other elements in the alloy.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_BALANCE_ALL_ELEMENTS</CODE></TD>
+        <TD CLASS="float">To compensate the change in concentration of the varying element by distributing the required balance over all other elements in the alloy.</TD>
+      </TR>
+    </TABLE>
+    <P><CODE><B>balanceElement</B> [input, optional]</CODE></P>
+    <P CLASS="indent">Pointer to a null-terminated sequence of characters that specifies the element to which to apply the balancing. When specifying the mode flag <CODE>JMP_BALANCE_ALL_ELEMENTS</CODE>, this parameter is ignored and may be set to <CODE>NULL</CODE>.</P>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function is only relevant to set up the Solver module to run concentration stepping calculations.</LI>
+      <LI>This function call is optional. The default behaviour is to balance against the first element in the alloy.</LI>
+      <LI>If the specified balancing element is not found in the set of elements in the alloy, then the default balancing element will be used instead.</LI>
+      <LI>When balancing against all of the remaining elements in the alloy, the distribution is performed according to the proportions defined in a base composition, set with <A HREF="jmpSetAlloyComposition.htm">jmpSetAlloyComposition()</A>.</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Headers</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE><BR><CODE>jmpsolver.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpsolver.lib</CODE>/<CODE>jmpsolver_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpsolver.dll</CODE>/<CODE>jmpsolver_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>

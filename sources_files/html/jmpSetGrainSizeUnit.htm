@@ -1,0 +1,60 @@
+<HTML>
+  <HEAD>
+    <TITLE>jmpSetGrainSizeUnit()</TITLE>
+    <LINK REL="stylesheet" TYPE="text/css" HREF="simple.css">
+  </HEAD>
+  <BODY>
+    <H1>jmpSetGrainSizeUnit()</H1>
+    <P>Defines the input grain size unit.</P>
+    <H2>Syntax</H2>
+    <P CLASS="code-block">int jmpSetGrainSizeUnit (int unitFlag);</P>
+    <H2>Parameters</H2>
+    <P><CODE><B>unitFlag</B> [input]</CODE></P>
+    <P CLASS="indent">Integer that specifies the unit used to express input grain sizes. This parameter can take one of the following values:</P>
+    <TABLE CLASS="indent" COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_GRAIN_SIZE_UNIT_METRE</CODE></TD>
+        <TD CLASS="float">To input grain sizes in metres.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_GRAIN_SIZE_UNIT_MICROMETRE</CODE></TD>
+        <TD CLASS="float">To input grain sizes in micrometres.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_GRAIN_SIZE_UNIT_ASTM</CODE></TD>
+        <TD CLASS="float">To input grain sizes in ASTM numbers.</TD>
+      </TR>
+    </TABLE>
+    <H2>Return values</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_OK</CODE></TD>
+        <TD CLASS="float">Request has been successfully completed.</TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit"><CODE>JMP_STATUS_ERROR</CODE></TD>
+        <TD CLASS="float">An error has occurred.</TD>
+      </TR>
+    </TABLE>
+    <H2>Remarks</H2>
+    <UL>
+      <LI>This function call is optional. The default grain size unit is micrometre.</LI>
+      <LI>This function only sets the unit used for input grain size values. The unit used for output values may differ (usually, it is metre).</LI>
+    </UL>
+    <H2>Requirements</H2>
+    <TABLE COLS="2">
+      <TR>
+        <TD CLASS="fit">Header</TD>
+        <TD CLASS="float"><CODE>jmpcore.h</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">Library</TD>
+        <TD CLASS="float"><CODE>jmpcore.lib</CODE>/<CODE>jmpcore_x64.lib</CODE></TD>
+      </TR>
+      <TR>
+        <TD CLASS="fit">DLL</TD>
+        <TD CLASS="float"><CODE>jmpcore.dll</CODE>/<CODE>jmpcore_x64.dll</CODE></TD>
+      </TR>
+    </TABLE>
+  </BODY>
+</HTML>
